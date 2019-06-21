@@ -1,0 +1,44 @@
+{
+    "name": "larapie/generator",
+    "description": "The core of the larapie framework.",
+    "keywords": ["laravel", "larapie", "api", "rest","generator"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Anthony Vancauwenberghe",
+            "email": "anthony.vanc@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "ext-json": "*",
+        "laravel/framework": "~5.8.0|~5.9.0",
+        "larapie/core": "0.*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "~3.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Larapie\\Generator\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Larapie\\Generator\\LarapieGeneratorServiceProvider"
+            ],
+            "aliases": {}
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
