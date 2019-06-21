@@ -13,7 +13,7 @@ class ControllerMakeCommand extends ClassGeneratorCommand
      *
      * @var string
      */
-    protected $name = 'larapi:make:controller';
+    protected $name = 'larapie:make:controller';
 
     /**
      * The console command description.

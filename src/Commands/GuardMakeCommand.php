@@ -13,7 +13,7 @@ class GuardMakeCommand extends ClassGeneratorCommand
      *
      * @var string
      */
-    protected $name = 'larapi:make:guard';
+    protected $name = 'larapie:make:guard';
 
     /**
      * The console command description.

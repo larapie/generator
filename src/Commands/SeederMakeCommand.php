@@ -12,7 +12,7 @@ class SeederMakeCommand extends ClassGeneratorCommand
      *
      * @var string
      */
-    protected $name = 'larapi:make:seeder';
+    protected $name = 'larapie:make:seeder';
 
     /**
      * The console command description.

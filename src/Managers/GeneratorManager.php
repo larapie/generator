@@ -49,7 +49,7 @@ class GeneratorManager
 
     protected function call(string $commandName, $options)
     {
-        \Artisan::call("larapi:make:$commandName", $this->alterOptions($options));
+        \Artisan::call("larapie:make:$commandName", $this->alterOptions($options));
     }
 
     /**

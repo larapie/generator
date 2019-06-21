@@ -15,7 +15,7 @@ class ComposerMakeCommand extends FileGeneratorCommand
      *
      * @var string
      */
-    protected $name = 'larapi:make:composer';
+    protected $name = 'larapie:make:composer';
 
     /**
      * The console command description.

@@ -12,7 +12,7 @@ class EventMakeCommand extends ClassGeneratorCommand
      *
      * @var string
      */
-    protected $name = 'larapi:make:event';
+    protected $name = 'larapie:make:event';
 
     /**
      * The console command description.

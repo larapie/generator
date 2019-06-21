@@ -13,7 +13,7 @@ class RuleMakeCommand extends ClassGeneratorCommand
      *
      * @var string
      */
-    protected $name = 'larapi:make:rule';
+    protected $name = 'larapie:make:rule';
 
     /**
      * The console command description.

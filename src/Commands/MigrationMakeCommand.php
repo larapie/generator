@@ -15,7 +15,7 @@ class MigrationMakeCommand extends ClassGeneratorCommand
      *
      * @var string
      */
-    protected $name = 'larapi:make:migration';
+    protected $name = 'larapie:make:migration';
 
     /**
      * The console command description.

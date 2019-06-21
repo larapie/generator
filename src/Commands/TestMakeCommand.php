@@ -15,7 +15,7 @@ class TestMakeCommand extends ClassGeneratorCommand
      *
      * @var string
      */
-    protected $name = 'larapi:make:test';
+    protected $name = 'larapie:make:test';
 
     /**
      * The console command description.

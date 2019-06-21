@@ -14,7 +14,7 @@ class CommandMakeCommand extends ClassGeneratorCommand
      *
      * @var string
      */
-    protected $name = 'larapi:make:command';
+    protected $name = 'larapie:make:command';
 
     /**
      * The console command description.

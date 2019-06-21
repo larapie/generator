@@ -15,7 +15,7 @@ class AttributeMakeCommand extends ClassGeneratorCommand
      *
      * @var string
      */
-    protected $name = 'larapi:make:attribute';
+    protected $name = 'larapie:make:attribute';
 
     /**
      * The console command description.

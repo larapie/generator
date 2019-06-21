@@ -15,7 +15,7 @@ class FactoryMakeCommand extends FileGeneratorCommand
      *
      * @var string
      */
-    protected $name = 'larapi:make:factory';
+    protected $name = 'larapie:make:factory';
 
     /**
      * The console command description.

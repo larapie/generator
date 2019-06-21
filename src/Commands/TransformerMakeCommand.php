@@ -15,7 +15,7 @@ class TransformerMakeCommand extends ClassGeneratorCommand
      *
      * @var string
      */
-    protected $name = 'larapi:make:transformer';
+    protected $name = 'larapie:make:transformer';
 
     /**
      * The console command description.

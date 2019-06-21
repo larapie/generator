@@ -13,7 +13,7 @@ class MiddlewareMakeCommand extends ClassGeneratorCommand
      *
      * @var string
      */
-    protected $name = 'larapi:make:middleware';
+    protected $name = 'larapie:make:middleware';
 
     /**
      * The console command description.

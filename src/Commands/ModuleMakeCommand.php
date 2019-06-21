@@ -14,7 +14,7 @@ class ModuleMakeCommand extends Command
      *
      * @var string
      */
-    protected $name = 'larapi:make:module';
+    protected $name = 'larapie:make:module';
 
     /**
      * The console command description.

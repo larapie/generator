@@ -12,7 +12,7 @@ class RequestMakeCommand extends ClassGeneratorCommand
      *
      * @var string
      */
-    protected $name = 'larapi:make:request';
+    protected $name = 'larapie:make:request';
 
     /**
      * The console command description.

@@ -14,7 +14,7 @@ class PermissionMakeCommand extends ClassGeneratorCommand
      *
      * @var string
      */
-    protected $name = 'larapi:make:permission';
+    protected $name = 'larapie:make:permission';
 
     /**
      * The console command description.

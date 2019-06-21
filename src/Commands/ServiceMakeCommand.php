@@ -14,7 +14,7 @@ class ServiceMakeCommand extends ClassGeneratorCommand
      *
      * @var string
      */
-    protected $name = 'larapi:make:service';
+    protected $name = 'larapie:make:service';
 
     /**
      * The console command description.

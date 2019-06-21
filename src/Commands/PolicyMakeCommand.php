@@ -13,7 +13,7 @@ class PolicyMakeCommand extends ClassGeneratorCommand
      *
      * @var string
      */
-    protected $name = 'larapi:make:policy';
+    protected $name = 'larapie:make:policy';
 
     /**
      * The name of the generated resource.

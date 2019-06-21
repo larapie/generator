@@ -13,7 +13,7 @@ class ProviderMakeCommand extends ClassGeneratorCommand
      *
      * @var string
      */
-    protected $name = 'larapi:make:provider';
+    protected $name = 'larapie:make:provider';
 
     /**
      * The console command description.

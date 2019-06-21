@@ -16,7 +16,7 @@ class RouteMakeCommand extends FileGeneratorCommand
      *
      * @var string
      */
-    protected $name = 'larapi:make:route';
+    protected $name = 'larapie:make:route';
 
     /**
      * The console command description.

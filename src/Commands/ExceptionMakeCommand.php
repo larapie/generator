@@ -12,7 +12,7 @@ class ExceptionMakeCommand extends ClassGeneratorCommand
      *
      * @var string
      */
-    protected $name = 'larapi:make:exception';
+    protected $name = 'larapie:make:exception';
 
     /**
      * The console command description.

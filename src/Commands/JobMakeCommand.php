@@ -14,7 +14,7 @@ class JobMakeCommand extends ClassGeneratorCommand
      *
      * @var string
      */
-    protected $name = 'larapi:make:job';
+    protected $name = 'larapie:make:job';
 
     /**
      * The console command description.

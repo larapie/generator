@@ -15,7 +15,7 @@ class RepositoryMakeCommand extends ClassGeneratorCommand
      *
      * @var string
      */
-    protected $name = 'larapi:make:repository';
+    protected $name = 'larapie:make:repository';
 
     /**
      * The console command description.
@@ -94,6 +94,6 @@ class RepositoryMakeCommand extends ClassGeneratorCommand
     }
 
     protected function handleModelOption($shortcut, $type, $question, $default){
-        return $this->anticipate('What is the name of the model?', Larapi::getModule($this->getModuleName())->getModels()->getAllPhpFileNamesWithoutExtension());
+        return $this->anticipate('What is the name of the model?', $this->getModule()->getModels()->getClassNames());
     }
 }

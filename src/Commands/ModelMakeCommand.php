@@ -17,7 +17,7 @@ class ModelMakeCommand extends ClassGeneratorCommand
      *
      * @var string
      */
-    protected $name = 'larapi:make:model';
+    protected $name = 'larapie:make:model';
 
     /**
      * The console command description.

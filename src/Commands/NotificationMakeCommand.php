@@ -13,7 +13,7 @@ final class NotificationMakeCommand extends ClassGeneratorCommand
      *
      * @var string
      */
-    protected $name = 'larapi:make:notification';
+    protected $name = 'larapie:make:notification';
 
     /**
      * The console command description.

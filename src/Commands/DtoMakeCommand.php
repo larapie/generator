@@ -16,7 +16,7 @@ class DtoMakeCommand extends ClassGeneratorCommand
      *
      * @var string
      */
-    protected $name = 'larapi:make:dto';
+    protected $name = 'larapie:make:dto';
 
     /**
      * The console command description.

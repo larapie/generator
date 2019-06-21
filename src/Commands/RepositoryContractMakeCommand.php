@@ -13,7 +13,7 @@ class RepositoryContractMakeCommand extends ClassGeneratorCommand
      *
      * @var string
      */
-    protected $name = 'larapi:make:repository-contract';
+    protected $name = 'larapie:make:repository-contract';
 
     /**
      * The console command description.

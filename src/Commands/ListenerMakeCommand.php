@@ -3,6 +3,7 @@
 namespace Larapie\Generator\Commands;
 
 use Foundation\Core\Larapi;
+use Larapie\Core\Support\Facades\Larapie;
 use Larapie\Generator\Abstracts\ClassGeneratorCommand;
 use Larapie\Generator\Events\ListenerGeneratedEvent;
 use Symfony\Component\Console\Input\InputOption;
@@ -15,7 +16,7 @@ class ListenerMakeCommand extends ClassGeneratorCommand
      *
      * @var string
      */
-    protected $name = 'larapi:make:listener';
+    protected $name = 'larapie:make:listener';
 
     /**
      * The console command description.
@@ -98,7 +99,7 @@ class ListenerMakeCommand extends ClassGeneratorCommand
 
     protected function handleEventOption($shortcut, $type, $question, $default)
     {
-        return $this->anticipate($question, Larapi::getModule($this->getModuleName())->getEvents()->getAllPhpFileNamesWithoutExtension(), $default);
+        return $this->anticipate($question, $this->getModule()->getEvents()->getClassNames(), $default);
     }
 
     protected function handleQueuedOption($shortcut, $type, $question, $default)
