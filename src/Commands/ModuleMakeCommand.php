@@ -54,4 +54,9 @@ class ModuleMakeCommand extends Command
             ['name', InputArgument::REQUIRED, 'The name of the module that will be created.'],
         ];
     }
+
+    protected function resourcePath(): string
+    {
+        return '';
+    }
 }

@@ -122,4 +122,9 @@ class ModelMakeCommand extends ClassGeneratorCommand
 
         return 'model.stub';
     }
+
+    protected function resourcePath(): string
+    {
+        return config('larapie.resources.models');
+    }
 }

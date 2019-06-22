@@ -49,7 +49,7 @@ class JobMakeCommand extends ClassGeneratorCommand
         return [
             'NAMESPACE' => $this->getClassNamespace(),
             'CLASS' => $this->getClassName(),
-            'SYNC'  => $this->isJobSynchronous()
+            'SYNC' => $this->isJobSynchronous()
         ];
     }
 
@@ -58,7 +58,7 @@ class JobMakeCommand extends ClassGeneratorCommand
      *
      * @return array
      */
-    protected function setOptions() :array
+    protected function setOptions(): array
     {
         return [
             ['sync', null, InputOption::VALUE_NONE, 'Indicates that job should be synchronous.'],
@@ -67,13 +67,12 @@ class JobMakeCommand extends ClassGeneratorCommand
 
     protected function isJobSynchronous(): bool
     {
-        return once(function () {
-            $option = $this->option('sync');
-            if ($option !== null)
-                $option = (bool)$option;
+        return $this->option('sync');
+    }
 
-            return $option === null ? $this->confirm('Should the job run Synchronously?', false) : $option;
-        });
+    protected function handleSyncOption()
+    {
+        return $this->confirm('Should the job run Synchronously?', false);
     }
 
     /**
@@ -86,5 +85,10 @@ class JobMakeCommand extends ClassGeneratorCommand
         }
 
         return 'job-queued.stub';
+    }
+
+    protected function resourcePath(): string
+    {
+        return config('larapie.resources.jobs');
     }
 }

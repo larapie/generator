@@ -1,12 +1,6 @@
 {
     "name": "$LOWER_MODULE_NAME$",
-    "description": "",
-    "authors": [
-            {
-                "name": "Arthur Devious",
-                "email": "development@astralbot.io"
-            }
-    ],
+    "description": "The $LOWER_MODULE_NAME$ module.",
     "require": {
 
     },

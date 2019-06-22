@@ -83,4 +83,9 @@ class TransformerMakeCommand extends ClassGeneratorCommand
     protected function handleModelOption(){
         return $this->anticipate('For what model would you like to generate a transformer?', $this->getModule()->getModels()->getClassNames(), $this->getModuleName());
     }
+
+    protected function resourcePath(): string
+    {
+        return config('larapie.resources.transformers');
+    }
 }

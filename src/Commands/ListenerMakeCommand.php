@@ -106,4 +106,9 @@ class ListenerMakeCommand extends ClassGeneratorCommand
     {
         return $this->confirm($question, $default);
     }
+
+    protected function resourcePath(): string
+    {
+        return config('larapie.resources.listeners');
+    }
 }

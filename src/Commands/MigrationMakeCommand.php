@@ -113,4 +113,9 @@ class MigrationMakeCommand extends ClassGeneratorCommand
     {
         return date('Y_m_d_His_') . Str::snake($this->getClassName(),'_');
     }
+
+    protected function resourcePath(): string
+    {
+        return config('larapie.resources.migrations');
+    }
 }

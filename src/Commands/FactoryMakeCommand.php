@@ -2,8 +2,6 @@
 
 namespace Larapie\Generator\Commands;
 
-use Foundation\Core\Larapi;
-use Larapie\Core\Support\Facades\Larapie;
 use Larapie\Generator\Abstracts\FileGeneratorCommand;
 use Larapie\Generator\Events\FactoryGeneratedEvent;
 use Symfony\Component\Console\Input\InputOption;
@@ -43,7 +41,7 @@ class FactoryMakeCommand extends FileGeneratorCommand
      *
      * @var string
      */
-    protected $filePath = '/Database/factories';
+    protected $filePath = '/Database/Factories';
 
     /**
      * The event that will fire when the file is created.
@@ -91,5 +89,10 @@ class FactoryMakeCommand extends FileGeneratorCommand
     protected function getFileName(): string
     {
         return $this->getClassName().'.php';
+    }
+
+    protected function resourcePath(): string
+    {
+        return config('larapie.resources.factories');
     }
 }

@@ -87,4 +87,9 @@ class RouteMakeCommand extends FileGeneratorCommand
         return strtolower(Str::plural($this->getModuleName())).'.'.$this->getVersion() . '.php';
     }
 
+    protected function resourcePath(): string
+    {
+        return config('larapie.resources.routes');
+    }
+
 }

@@ -8,35 +8,6 @@
 
 namespace Larapie\Generator;
 
-use Larapie\Generator\Commands\AttributeMakeCommand;
-use Larapie\Generator\Commands\CommandMakeCommand;
-use Larapie\Generator\Commands\ComposerMakeCommand;
-use Larapie\Generator\Commands\ControllerMakeCommand;
-use Larapie\Generator\Commands\DtoMakeCommand;
-use Larapie\Generator\Commands\EventMakeCommand;
-use Larapie\Generator\Commands\ExceptionMakeCommand;
-use Larapie\Generator\Commands\FactoryMakeCommand;
-use Larapie\Generator\Commands\GuardMakeCommand;
-use Larapie\Generator\Commands\JobMakeCommand;
-use Larapie\Generator\Commands\ListenerMakeCommand;
-use Larapie\Generator\Commands\MiddlewareMakeCommand;
-use Larapie\Generator\Commands\MigrationMakeCommand;
-use Larapie\Generator\Commands\ModelMakeCommand;
-use Larapie\Generator\Commands\ModuleMakeCommand;
-use Larapie\Generator\Commands\NotificationMakeCommand;
-use Larapie\Generator\Commands\PermissionMakeCommand;
-use Larapie\Generator\Commands\PolicyMakeCommand;
-use Larapie\Generator\Commands\ProviderMakeCommand;
-use Larapie\Generator\Commands\RepositoryContractMakeCommand;
-use Larapie\Generator\Commands\RepositoryMakeCommand;
-use Larapie\Generator\Commands\RequestMakeCommand;
-use Larapie\Generator\Commands\RouteMakeCommand;
-use Larapie\Generator\Commands\RuleMakeCommand;
-use Larapie\Generator\Commands\SeederMakeCommand;
-use Larapie\Generator\Commands\ServiceContractMakeCommand;
-use Larapie\Generator\Commands\ServiceMakeCommand;
-use Larapie\Generator\Commands\TestMakeCommand;
-use Larapie\Generator\Commands\TransformerMakeCommand;
 use Larapie\Generator\Console\PublishStubsCommand;
 use Larapie\Generator\Contracts\ResourceGenerationContract;
 use Larapie\Generator\Listeners\CreateGeneratedFile;
@@ -45,36 +16,6 @@ use Illuminate\Support\ServiceProvider;
 class LarapieGeneratorServiceProvider extends ServiceProvider
 {
     protected $commands = [
-        FactoryMakeCommand::class,
-        CommandMakeCommand::class,
-        ControllerMakeCommand::class,
-        EventMakeCommand::class,
-        JobMakeCommand::class,
-        ListenerMakeCommand::class,
-        MiddlewareMakeCommand::class,
-        MigrationMakeCommand::class,
-        ProviderMakeCommand::class,
-        NotificationMakeCommand::class,
-        ModelMakeCommand::class,
-        PolicyMakeCommand::class,
-        TestMakeCommand::class,
-        RuleMakeCommand::class,
-        TransformerMakeCommand::class,
-        RequestMakeCommand::class,
-        SeederMakeCommand::class,
-        RuleMakeCommand::class,
-        ComposerMakeCommand::class,
-        RouteMakeCommand::class,
-        ServiceMakeCommand::class,
-        ServiceContractMakeCommand::class,
-        ModuleMakeCommand::class,
-        ExceptionMakeCommand::class,
-        PermissionMakeCommand::class,
-        AttributeMakeCommand::class,
-        DtoMakeCommand::class,
-        GuardMakeCommand::class,
-        RepositoryMakeCommand::class,
-        RepositoryContractMakeCommand::class,
         PublishStubsCommand::class
     ];
 
@@ -85,8 +26,8 @@ class LarapieGeneratorServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        \Event::listen(ResourceGenerationContract::class, CreateGeneratedFile::class);
-        $this->mergeConfigFrom(__DIR__ . '/Config/generator.php', 'generator');
+        $this->publishConfig();
+        $this->registerResourceMakeCommands();
     }
 
     /**
@@ -96,6 +37,50 @@ class LarapieGeneratorServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        \Event::listen(ResourceGenerationContract::class, CreateGeneratedFile::class);
+        $this->mergeConfigFrom(__DIR__ . '/Config/generator.php', 'generator');
         $this->commands($this->commands);
+    }
+
+    protected function publishConfig()
+    {
+        $this->publishes([
+            __DIR__.'/Config/generator.php' => config_path('generator.php'),
+        ]);
+    }
+
+    public function registerResourceMakeCommands(){
+        $this->commands([
+            config('generator.commands.action'),
+            config('generator.commands.attribute'),
+            config('generator.commands.command'),
+            config('generator.commands.composer'),
+            config('generator.commands.controller'),
+            config('generator.commands.dto'),
+            config('generator.commands.event'),
+            config('generator.commands.exception'),
+            config('generator.commands.factory'),
+            config('generator.commands.guard'),
+            config('generator.commands.job'),
+            config('generator.commands.listener'),
+            config('generator.commands.middleware'),
+            config('generator.commands.migration'),
+            config('generator.commands.model'),
+            config('generator.commands.module'),
+            config('generator.commands.notification'),
+            config('generator.commands.permission'),
+            config('generator.commands.policy'),
+            config('generator.commands.provider'),
+            config('generator.commands.repository'),
+            config('generator.commands.repository_contract'),
+            config('generator.commands.request'),
+            config('generator.commands.route'),
+            config('generator.commands.rule'),
+            config('generator.commands.seeder'),
+            config('generator.commands.service'),
+            config('generator.commands.service_contract'),
+            config('generator.commands.test'),
+            config('generator.commands.transformer')
+        ]);
     }
 }

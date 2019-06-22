@@ -97,4 +97,9 @@ class ServiceMakeCommand extends ClassGeneratorCommand
             return "service-dto.stub";
         return "service.stub";
     }
+
+    protected function resourcePath(): string
+    {
+        return config('larapie.resources.services');
+    }
 }

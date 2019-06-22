@@ -57,4 +57,9 @@ class RepositoryContractMakeCommand extends ClassGeneratorCommand
             'CLASS' => $this->getClassName(),
         ];
     }
+
+    protected function resourcePath(): string
+    {
+        return '/contracts';
+    }
 }

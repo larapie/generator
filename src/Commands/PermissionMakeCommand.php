@@ -60,4 +60,9 @@ class PermissionMakeCommand extends ClassGeneratorCommand
             'LOWER_MODULE'  => strtolower($this->getModuleName())
         ];
     }
+
+    protected function resourcePath(): string
+    {
+        return config('larapie.resources.permissions');
+    }
 }

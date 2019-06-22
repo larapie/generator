@@ -83,4 +83,9 @@ class CommandMakeCommand extends ClassGeneratorCommand
     protected function handleCommandOption($shortcut, $type, $question, $default){
         return $this->ask('What is the name of the terminal command?',str_replace('command', '', strtolower($this->getModuleName()) . ':' . strtolower($this->getClassName())));
     }
+
+    protected function resourcePath(): string
+    {
+        return config('larapie.resources.commands');
+    }
 }

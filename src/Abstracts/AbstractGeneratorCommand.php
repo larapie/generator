@@ -11,6 +11,7 @@ namespace Larapie\Generator\Abstracts;
 use Larapie\Core\Internals\Module;
 use Larapie\Core\Support\Facades\Larapie;
 use Larapie\Generator\Exceptions\EventNotFoundException;
+use Larapie\Generator\Managers\GeneratorManager;
 use Larapie\Generator\Support\Stub;
 use Illuminate\Console\Command;
 use Illuminate\Contracts\Filesystem\FileExistsException;
@@ -100,8 +101,10 @@ abstract class AbstractGeneratorCommand extends Command
      */
     protected function getDestinationFilePath(): string
     {
-        return $this->getModule()->getPath() . $this->filePath . '/' . $this->getFileName();
+        return $this->getModule()->getPath() . $this->resourcePath() . '/' . $this->getFileName();
     }
+
+    protected abstract function resourcePath(): string;
 
     /**
      * @return string
@@ -113,9 +116,19 @@ abstract class AbstractGeneratorCommand extends Command
         return $this->getOption('overwrite');
     }
 
-    protected function getModule(): Module
+    protected function getModule(): ?Module
     {
-        return Larapie::getModule($this->getModuleName());
+        $module = Larapie::getModule($this->getModuleName());
+
+        if ($module === null)
+            if ($this->confirm('The specified module does not exist. Do you want to create an empty module?', true)) {
+                mkdir(Larapie::getModulePath($this->getModuleName()));
+                $module = Larapie::getModule($this->getModuleName());
+                GeneratorManager::module($this->getModuleName())->createComposer();
+            } else {
+                exit("Exited. Module '" . strtolower($this->getModuleName()) . "' does not exist");
+            }
+        return $module;
     }
 
     protected function beforeGeneration(): void
@@ -218,7 +231,7 @@ abstract class AbstractGeneratorCommand extends Command
         return $this->anticipate('For what module would you like to generate a ' . $this->getGeneratorName() . '.', Larapie::getModuleNames());
     }
 
-    protected function getModuleName() :string
+    protected function getModuleName(): string
     {
         $moduleName = $this->getArgument('module');
         if ($moduleName === null) {

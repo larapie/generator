@@ -59,4 +59,9 @@ class MiddlewareMakeCommand extends ClassGeneratorCommand
         ];
     }
 
+    protected function resourcePath(): string
+    {
+        return config('larapie.resources.middleware');
+    }
+
 }

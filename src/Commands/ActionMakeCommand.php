@@ -8,7 +8,7 @@ use Larapie\Generator\Events\EventGeneratedEvent;
 use Larapie\Generator\Events\ServiceGeneratedEvent;
 use Larapie\Generator\Managers\GeneratorManager;
 
-class AttributeMakeCommand extends ClassGeneratorCommand
+class ActionMakeCommand extends ClassGeneratorCommand
 {
     /**
      * The console command name.
@@ -67,6 +67,6 @@ class AttributeMakeCommand extends ClassGeneratorCommand
 
     protected function resourcePath(): string
     {
-        return config('larapie.resources.attributes');
+        return config('larapie.resources.actions');
     }
 }

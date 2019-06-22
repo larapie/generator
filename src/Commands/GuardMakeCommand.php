@@ -57,4 +57,9 @@ class GuardMakeCommand extends ClassGeneratorCommand
             'CLASS' => $this->getClassName(),
         ];
     }
+
+    protected function resourcePath(): string
+    {
+        return config('larapie.resources.guard');
+    }
 }

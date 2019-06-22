@@ -86,4 +86,9 @@ class ServiceContractMakeCommand extends ClassGeneratorCommand
             return "service-dto-contract.stub";
         return "service-contract.stub";
     }
+
+    protected function resourcePath(): string
+    {
+        return 'contracts';
+    }
 }

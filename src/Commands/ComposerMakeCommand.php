@@ -56,24 +56,17 @@ class ComposerMakeCommand extends FileGeneratorCommand
     {
         return [
             'LOWER_MODULE_NAME' => strtolower($this->getModuleName()),
-            'AUTHOR_NAME'  => $this->getAuthorName(),
-            'AUTHOR_MAIL'  => $this->getAuthorMail()
         ];
-    }
-
-    protected function getAuthorName() :string {
-        //TODO IMPLEMENT ASKING FOR AUTHOR NAME
-        return 'arthur devious';
-    }
-
-    protected function getAuthorMail() :string {
-        //TODO IMPLEMENT ASKING FOR AUTHOR MAIL
-        return 'aamining2@gmail.com';
     }
 
     protected function getFileName() :string
     {
         return 'composer.json';
+    }
+
+    protected function resourcePath(): string
+    {
+        return '';
     }
 
 }

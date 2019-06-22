@@ -95,4 +95,9 @@ class TestMakeCommand extends ClassGeneratorCommand
     {
         return $this->anticipate('What is the type of the test?', $this->types, $default);
     }
+
+    protected function resourcePath(): string
+    {
+        return config('larapie.resources.tests');
+    }
 }

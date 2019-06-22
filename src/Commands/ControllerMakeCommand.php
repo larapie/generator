@@ -86,4 +86,9 @@ class ControllerMakeCommand extends ClassGeneratorCommand
             return "controller-dto.stub";
         return "controller.stub";
     }
+
+    protected function resourcePath(): string
+    {
+        return config('larapie.resources.controllers');
+    }
 }

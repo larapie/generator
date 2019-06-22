@@ -18,11 +18,5 @@ use Larapie\Generator\Abstracts\ResourceGeneratedEvent;
  */
 class ComposerGeneratedEvent extends ResourceGeneratedEvent
 {
-    public function getAuthorName(){
-        return $this->getStubOption("author_name");
-    }
 
-    public function getAuthorMail(){
-        return $this->getStubOption("author_mail");
-    }
 }

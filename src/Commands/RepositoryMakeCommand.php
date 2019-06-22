@@ -96,4 +96,9 @@ class RepositoryMakeCommand extends ClassGeneratorCommand
     protected function handleModelOption($shortcut, $type, $question, $default){
         return $this->anticipate('What is the name of the model?', $this->getModule()->getModels()->getClassNames());
     }
+
+    protected function resourcePath(): string
+    {
+        return config('larapie.resources.repositories');
+    }
 }
