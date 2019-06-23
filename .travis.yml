@@ -4,8 +4,8 @@ dist: bionic
 
 matrix:
   include:
-    - php: 7.2
-    - php: 7.3
+    - php: '7.2'
+    - php: '7.3'
 
 before_install:
 - travis_retry composer self-update
@@ -13,5 +13,4 @@ before_install:
 install:
 - composer update
 
-script:
-- vendor/bin/phpunit
+script: ./vendor/bin/phpunit

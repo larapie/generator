@@ -15,8 +15,10 @@
     </testsuites>
     <filter>
         <whitelist>
-            <directory suffix="Test.php">./tests</directory>
+            <directory suffix=".php">./tests</directory>
         </whitelist>
+        <exclude>
+        </exclude>
     </filter>
     <php>
         <env name="MODULES_PATH" value="tests/Modules"/>
