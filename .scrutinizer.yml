@@ -10,7 +10,7 @@ build:
     override:
     - php-scrutinizer-run
     - command: phpcs-run
-      use_website_config: true
+      use_website_config: false
 checks:
   php:
     code_rating: true
