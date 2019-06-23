@@ -46,7 +46,8 @@ abstract class ClassGeneratorCommand extends AbstractGeneratorCommand
      */
     public function getClassNamespace(): string
     {
-        return $value = ltrim($this->getModule()->getNamespace(), '\\') . str_replace('/', '\\', $this->resourcePath());
+         $value = ltrim($this->getModule()->getNamespace(), '\\') . str_replace('/', '\\', $this->resourcePath());
+         return $value;
     }
 
     protected function getClassName()

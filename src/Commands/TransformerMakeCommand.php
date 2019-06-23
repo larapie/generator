@@ -59,7 +59,7 @@ class TransformerMakeCommand extends ClassGeneratorCommand
             'NAMESPACE' => $this->getClassNamespace(),
             'MODEL' => $this->getModelName(),
             "LOWER_MODEL" => strtolower($this->getModelName()),
-            'MODEL_NAMESPACE' => $this->getModule()->getNamespace().'\\'.'Entities'.'\\'.$this->getModelName(),
+            'MODEL_NAMESPACE' => $this->getModule()->getModels()->getNamespace() . '\\' . $this->getModelName(),
         ];
     }
 

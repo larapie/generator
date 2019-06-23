@@ -116,7 +116,7 @@ class FileGeneratorTest extends TestCase
 
         $path = Larapie::getModule($module)->getFactories()->getPath() . "/$class.php";
         $stub = "factory.stub";
-        $modelNamespace = "Modules\User\Entities\User";
+        $modelNamespace = Larapie::getModule($module)->getModels()->getNamespace() . '\\'.Str::studly($model);
 
         /* @var FactoryGeneratedEvent $event */
         $event = $this->getDispatchedEvents(FactoryGeneratedEvent::class)->first();
@@ -139,7 +139,7 @@ class FileGeneratorTest extends TestCase
 
         $path = Larapie::getModule($module)->getControllers()->getPath() . "/$class.php";
         $stub = "controller.stub";
-        $namespace = "Modules\User\Http\Controllers";
+        $namespace = Larapie::getModule($module)->getControllers()->getNamespace();
 
         /* @var ControllerGeneratedEvent $event */
         $event = $this->getDispatchedEvents(ControllerGeneratedEvent::class)->first();
@@ -160,7 +160,7 @@ class FileGeneratorTest extends TestCase
 
         $path = Larapie::getModule($module)->getAttributes()->getPath() . "/$class.php";
         $stub = "attribute.stub";
-        $namespace = "Modules\User\Attributes";
+        $namespace = Larapie::getModule($module)->getAttributes()->getNamespace();
 
         /* @var AttributeGeneratedEvent $event */
         $event = $this->getDispatchedEvents(AttributeGeneratedEvent::class)->first();
@@ -183,8 +183,8 @@ class FileGeneratorTest extends TestCase
 
         $path = Larapie::getModule($module)->getListeners()->getPath() . '/SendWelcomeMail.php';
         $stub = "listener.stub";
-        $namespace = "Modules\User\Listeners";
-        $eventNamespace = "Modules\User\Events\UserRegisteredEvent";
+        $namespace = Larapie::getModule($module)->getListeners()->getNamespace();
+        $eventNamespace = Larapie::getModule($module)->getEvents()->getNamespace()."\\".$eventClass;
 
         /* @var ListenerGeneratedEvent $event */
         $event = $this->getDispatchedEvents(ListenerGeneratedEvent::class)->first();
@@ -210,8 +210,8 @@ class FileGeneratorTest extends TestCase
 
         $path = Larapie::getModule($module)->getListeners()->getPath() . '/SendWelcomeMail.php';
         $stub = "listener-queued.stub";
-        $namespace = "Modules\User\Listeners";
-        $eventNamespace = "Modules\User\Events\UserRegisteredEvent";
+        $namespace = Larapie::getModule($module)->getListeners()->getNamespace();
+        $eventNamespace = Larapie::getModule($module)->getEvents()->getNamespace()."\\".$eventClass;
 
         /* @var ListenerGeneratedEvent $event */
         $event = $this->getDispatchedEvents(ListenerGeneratedEvent::class)->first();
@@ -237,7 +237,7 @@ class FileGeneratorTest extends TestCase
 
         $path = Larapie::getModule($module)->getJobs()->getPath() . "/$class.php";
         $stub = "job-queued.stub";
-        $namespace = "Modules\User\Jobs";
+        $namespace = Larapie::getModule($module)->getJobs()->getNamespace();
 
         /* @var JobGeneratedEvent $event */
         $event = $this->getDispatchedEvents(JobGeneratedEvent::class)->first();
@@ -261,7 +261,7 @@ class FileGeneratorTest extends TestCase
 
         $path = Larapie::getModule($module)->getJobs()->getPath() . "/$class.php";
         $stub = "job.stub";
-        $namespace = "Modules\User\Jobs";
+        $namespace = Larapie::getModule($module)->getJobs()->getNamespace();
 
         /* @var JobGeneratedEvent $event */
         $event = $this->getDispatchedEvents(JobGeneratedEvent::class)->first();
@@ -285,7 +285,7 @@ class FileGeneratorTest extends TestCase
 
         $path = Larapie::getModule($module)->getCommands()->getPath() . "/$class.php";
         $stub = "command.stub";
-        $namespace = "Modules\User\Console";
+        $namespace = Larapie::getModule($module)->getCommands()->getNamespace();
 
 
         /* @var CommandGeneratedEvent $event */
@@ -309,7 +309,7 @@ class FileGeneratorTest extends TestCase
 
         $path = Larapie::getModule($module)->getMiddleWare()->getPath() . "/$class.php";
         $stub = "middleware.stub";
-        $namespace = "Modules\User\Http\Middleware";
+        $namespace = Larapie::getModule($module)->getMiddleWare()->getNamespace();
 
         /* @var MiddlewareGeneratedEvent $event */
         $event = $this->getDispatchedEvents(MiddlewareGeneratedEvent::class)->first();
@@ -331,7 +331,7 @@ class FileGeneratorTest extends TestCase
 
         $path = Larapie::getModule($module)->getServiceProviders()->getPath() . "/$class.php";
         $stub = "provider.stub";
-        $namespace = "Modules\User\Providers";
+        $namespace = Larapie::getModule($module)->getServiceProviders()->getNamespace();
 
         /* @var ProviderGeneratedEvent $event */
         $event = $this->getDispatchedEvents(ProviderGeneratedEvent::class)->first();
@@ -353,7 +353,7 @@ class FileGeneratorTest extends TestCase
 
         $path = Larapie::getModule($module)->getServices()->getPath() . "/$class.php";
         $stub = "service.stub";
-        $namespace = "Modules\User\Services";
+        $namespace = Larapie::getModule($module)->getServices()->getNamespace();
 
         /* @var ServiceGeneratedEvent $event */
         $event = $this->getDispatchedEvents(ServiceGeneratedEvent::class)->first();
@@ -375,7 +375,7 @@ class FileGeneratorTest extends TestCase
 
         $path = Larapie::getModule($module)->getNotifications()->getPath() . "/$class.php";
         $stub = "notification.stub";
-        $namespace = "Modules\User\Notifications";
+        $namespace = Larapie::getModule($module)->getNotifications()->getNamespace();
 
         /* @var NotificationGeneratedEvent $event */
         $event = $this->getDispatchedEvents(NotificationGeneratedEvent::class)->first();
@@ -400,7 +400,7 @@ class FileGeneratorTest extends TestCase
 
         $path = Larapie::getModule($module)->getModels()->getPath() . "/$module$modelName.php";
         $stub = "model.stub";
-        $namespace = "Modules\User\Models";
+        $namespace = Larapie::getModule($module)->getModels()->getNamespace();
 
         /* @var ModelGeneratedEvent $event */
         $event = $this->getDispatchedEvents(ModelGeneratedEvent::class)->first();
@@ -435,7 +435,7 @@ class FileGeneratorTest extends TestCase
 
         $path = Larapie::getModule($module)->getPolicies()->getPath() . "/$class.php";
         $stub = "policy.stub";
-        $namespace = "Modules\User\Policies";
+        $namespace = Larapie::getModule($module)->getPolicies()->getNamespace();
 
         /* @var PolicyGeneratedEvent $event */
         $event = $this->getDispatchedEvents(PolicyGeneratedEvent::class)->first();
@@ -458,8 +458,8 @@ class FileGeneratorTest extends TestCase
 
         $path = Larapie::getModule($module)->getTransformers()->getPath() . "/$class.php";
         $stub = "transformer.stub";
-        $namespace = "Modules\User\Transformers";
-        $modelNamespace = "Modules\User\Entities\User";
+        $namespace = Larapie::getModule($module)->getTransformers()->getNamespace();
+        $modelNamespace = Larapie::getModule($module)->getModels()->getNamespace() . '\\'.Str::studly($model);
 
         /* @var TransformerGeneratedEvent $event */
         $event = $this->getDispatchedEvents(TransformerGeneratedEvent::class)->first();
@@ -483,7 +483,7 @@ class FileGeneratorTest extends TestCase
 
         $path = Larapie::getModule($module)->getTests()->getPath() . "/$class.php";
         $stub = "test-unit.stub";
-        $namespace = "Modules\User\Tests";
+        $namespace = Larapie::getModule($module)->getTests()->getNamespace();
         $type = "unit";
 
         /* @var TestGeneratedEvent $event */
@@ -517,7 +517,8 @@ class FileGeneratorTest extends TestCase
             $stub,
             $class,
             $namespace,
-            $path);
+            $path
+        );
     }
 
     public function testCreateRule()
@@ -530,7 +531,7 @@ class FileGeneratorTest extends TestCase
         $path = Larapie::getModule($module)->getRules()->getPath() . "/$fileName.php";
         $stub = "rule.stub";
         $class = "BlalkaRule";
-        $namespace = "Modules\User\Rules";
+        $namespace = Larapie::getModule($module)->getRules()->getNamespace();
 
         /* @var RuleGeneratedEvent $event */
         $event = $this->getDispatchedEvents(RuleGeneratedEvent::class)->first();
@@ -552,8 +553,7 @@ class FileGeneratorTest extends TestCase
 
         $path = Larapie::getModule($module)->getSeeders()->getPath() . "/$class.php";
         $stub = "seeder.stub";
-        $namespace = "Modules\User\Database\Seeders";
-
+        $namespace = Larapie::getModule($module)->getSeeders()->getNamespace();
         /* @var SeederGeneratedEvent $event */
         $event = $this->getDispatchedEvents(SeederGeneratedEvent::class)->first();
         $this->assertClassBasics(

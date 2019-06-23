@@ -2,7 +2,6 @@
 
 namespace Larapie\Generator\Commands;
 
-use Larapie\Generator\Abstracts\AbstractGeneratorCommand;
 use Larapie\Generator\Abstracts\ClassGeneratorCommand;
 use Larapie\Generator\Events\ModelGeneratedEvent;
 use Larapie\Generator\Managers\GeneratorManager;

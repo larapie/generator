@@ -37,13 +37,6 @@ class FactoryMakeCommand extends FileGeneratorCommand
     protected $stub = 'factory.stub';
 
     /**
-     * The file path.
-     *
-     * @var string
-     */
-    protected $filePath = '/Database/Factories';
-
-    /**
      * The event that will fire when the file is created.
      *
      * @var string
@@ -60,7 +53,7 @@ class FactoryMakeCommand extends FileGeneratorCommand
         return [
             'CLASS' => $this->getClassName(),
             'MODEL' => $this->getModelName(),
-            'MODEL_NAMESPACE' => $this->getModule()->getNamespace() . '\\' . 'Entities' . '\\' . $this->getModelName(),
+            'MODEL_NAMESPACE' => $this->getModule()->getModels()->getNamespace() . '\\' . $this->getModelName(),
         ];
     }
 
