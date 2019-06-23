@@ -16,9 +16,10 @@
     <filter>
         <whitelist>
             <directory suffix=".php">./tests</directory>
+            <exclude>
+            </exclude>
         </whitelist>
-        <exclude>
-        </exclude>
+
     </filter>
     <php>
         <env name="MODULES_PATH" value="tests/Modules"/>
