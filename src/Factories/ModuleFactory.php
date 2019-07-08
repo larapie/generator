@@ -8,7 +8,6 @@
 
 namespace Larapie\Generator\Factories;
 
-
 use Larapie\Core\Internals\Module;
 use Larapie\Core\Support\Facades\Larapie;
 use Larapie\Generator\Exceptions\FileAlreadyExistException;

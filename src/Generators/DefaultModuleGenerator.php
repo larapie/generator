@@ -25,7 +25,7 @@ class DefaultModuleGenerator
     /**
      * @var ModuleFactory
      */
-    protected $moduleFactory;
+    protected $factory;
 
     /**
      * DefaultModuleGenerator constructor.
@@ -34,7 +34,7 @@ class DefaultModuleGenerator
     public function __construct(string $moduleName)
     {
         $this->moduleName = $moduleName;
-        $this->moduleFactory = new ModuleFactory($moduleName);
+        $this->factory = new ModuleFactory($moduleName);
     }
 
     /**
@@ -42,43 +42,29 @@ class DefaultModuleGenerator
      */
     public function generate(){
 
-        $this->moduleFactory->addModel($this->moduleName, true, true);
+        $this->factory->addModel($this->moduleName, false, true);
 
-        $this->moduleFactory->addRepository($this->moduleName . 'Repository', $this->moduleName);
+        $this->factory->addTest($this->moduleName . 'UnitTest', 'unit');
 
-        $this->moduleFactory->addService($this->moduleName . 'Service',true);
+        $this->factory->addEvent($this->moduleName . 'WasCreatedEvent');
+        $this->factory->addEvent($this->moduleName . 'WasUpdatedEvent');
+        $this->factory->addEvent($this->moduleName . 'WasDeletedEvent');
 
-        $this->moduleFactory->addController($this->moduleName . "Controller", true);
+        $this->factory->addPermission($this->moduleName . 'Permission');
 
-        $this->moduleFactory->addTest($this->moduleName . 'ServiceTest', 'service');
-        $this->moduleFactory->addTest($this->moduleName . 'HttpTest', 'http');
-        $this->moduleFactory->addTest($this->moduleName . 'UnitTest', 'unit');
+        $this->factory->addPolicy($this->moduleName . 'Policy');
 
-        $this->moduleFactory->addEvent($this->moduleName . 'WasCreatedEvent');
-        $this->moduleFactory->addEvent($this->moduleName . 'WasUpdatedEvent');
-        $this->moduleFactory->addEvent($this->moduleName . 'WasDeletedEvent');
+        $this->factory->addFactory($this->moduleName);
 
-        $this->moduleFactory->addRequest('Find'.$this->moduleName . 'Request');
-        $this->moduleFactory->addRequest('Index'.$this->moduleName . 'Request');
-        $this->moduleFactory->addRequest('Create'.$this->moduleName . 'Request');
-        $this->moduleFactory->addRequest('Update'.$this->moduleName . 'Request');
-        $this->moduleFactory->addRequest('Delete'.$this->moduleName . 'Request');
+        $this->factory->addTransformer($this->moduleName.'Transformer', $this->moduleName);
 
-        $this->moduleFactory->addPermission($this->moduleName . 'Permission');
+        $this->factory->addServiceProvider($this->moduleName . 'ServiceProvider');
 
-        $this->moduleFactory->addPolicy($this->moduleName . 'Policy');
+        $this->factory->addRoute('v1');
 
-        $this->moduleFactory->addFactory($this->moduleName);
+        $this->factory->addComposer();
 
-        $this->moduleFactory->addTransformer($this->moduleName.'Transformer', $this->moduleName);
-
-        $this->moduleFactory->addServiceProvider($this->moduleName . 'ServiceProvider');
-
-        $this->moduleFactory->addRoute('v1');
-
-        $this->moduleFactory->addComposer();
-
-        $this->moduleFactory->build();
+        $this->factory->build();
     }
 
 

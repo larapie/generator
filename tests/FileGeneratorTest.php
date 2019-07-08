@@ -6,6 +6,7 @@ use Larapie\Core\LarapieServiceProvider;
 use Larapie\Core\Support\Facades\Larapie;
 use Larapie\Core\Traits\DispatchedEvents;
 use Larapie\Generator\Contracts\ResourceGenerationContract;
+use Larapie\Generator\Events\ActionGeneratedEvent;
 use Larapie\Generator\Events\AttributeGeneratedEvent;
 use Larapie\Generator\Events\CommandGeneratedEvent;
 use Larapie\Generator\Events\ComposerGeneratedEvent;
@@ -164,6 +165,27 @@ class FileGeneratorTest extends TestCase
 
         /* @var AttributeGeneratedEvent $event */
         $event = $this->getDispatchedEvents(AttributeGeneratedEvent::class)->first();
+        $this->assertClassBasics(
+            $event,
+            $module,
+            $stub,
+            $class,
+            $namespace,
+            $path);
+    }
+
+    public function testCreateAction()
+    {
+        $module = "User";
+        $class = "UserAction";
+        $this->getModuleGenerator($module)->createAction($class);
+
+        $path = Larapie::getModule($module)->getActions()->getPath() . "/$class.php";
+        $stub = "action.stub";
+        $namespace = Larapie::getModule($module)->getActions()->getNamespace();
+
+        /* @var ActionGeneratedEvent $event */
+        $event = $this->getDispatchedEvents(ActionGeneratedEvent::class)->first();
         $this->assertClassBasics(
             $event,
             $module,
@@ -591,7 +613,7 @@ class FileGeneratorTest extends TestCase
     {
         $moduleName = "Demo";
         $version = 'v1';
-        $routename = strtolower(Str::plural($moduleName)) . ".$version";
+        $routename = strtolower(Str::plural($moduleName)) . ".api.$version";
 
         $this->getModuleGenerator($moduleName)->createRoute($version);
 

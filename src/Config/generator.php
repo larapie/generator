@@ -1,7 +1,9 @@
 <?php
 
 return [
-    'stub_path' => env('GENERATOR_STUB_PATH', 'app/Foundation/Stubs'),
+    'stub_path' => env('GENERATOR_STUB_PATH', 'app/Packages/Generator/Stubs'),
+
+    'module_generator' => \Larapie\Generator\Generators\DefaultModuleGenerator::class,
 
     'commands' => [
         'action' => \Larapie\Generator\Commands\ActionMakeCommand::class,
@@ -35,4 +37,5 @@ return [
         'test' => \Larapie\Generator\Commands\TestMakeCommand::class,
         'transformer' => \Larapie\Generator\Commands\TransformerMakeCommand::class
     ]
+
 ];

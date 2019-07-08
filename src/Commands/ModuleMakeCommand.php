@@ -31,7 +31,8 @@ class ModuleMakeCommand extends Command
         $moduleName = ucfirst(strtolower($this->argument('name')));
 
         $this->handleExistingModule($moduleName);
-        $generator = new DefaultModuleGenerator($moduleName);
+        $generator = config('generator.module_generator');
+        $generator = new $generator($moduleName);
         $generator->generate();
     }
 

@@ -3,10 +3,7 @@
 namespace Larapie\Generator\Commands;
 
 use Larapie\Generator\Abstracts\ClassGeneratorCommand;
-use Larapie\Generator\Events\AttributeGeneratedEvent;
-use Larapie\Generator\Events\EventGeneratedEvent;
-use Larapie\Generator\Events\ServiceGeneratedEvent;
-use Larapie\Generator\Managers\GeneratorManager;
+use Larapie\Generator\Events\ActionGeneratedEvent;
 
 class ActionMakeCommand extends ClassGeneratorCommand
 {
@@ -15,42 +12,43 @@ class ActionMakeCommand extends ClassGeneratorCommand
      *
      * @var string
      */
-    protected $name = 'larapie:make:attribute';
+    protected $name = 'larapie:make:action';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Create a new attribute interface for a model';
+    protected $description = 'Create a new action';
 
     /**
      * The name of the generated resource.
      *
      * @var string
      */
-    protected $generatorName = 'attribute';
+    protected $generatorName = 'action';
 
     /**
      * The stub name.
      *
      * @var string
      */
-    protected $stub = 'attribute.stub';
+    protected $stub = 'action.stub';
+
 
     /**
      * The file path.
      *
      * @var string
      */
-    protected $filePath = '/Attributes';
+    protected $filePath = '/Actions';
 
     /**
      * The event that will fire when the file is created.
      *
      * @var string
      */
-    protected $event = AttributeGeneratedEvent::class;
+    protected $event = ActionGeneratedEvent::class;
 
     protected function stubOptions(): array
     {

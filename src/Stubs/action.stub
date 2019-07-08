@@ -1,0 +1,29 @@
+<?php
+
+namespace $NAMESPACE$;
+
+class $CLASS$
+{
+
+    public function authorize()
+    {
+        return true;
+    }
+
+    public function rules()
+    {
+     return [
+        // 'attribute' => 'required|string|max:255',
+     ];
+    }
+
+    public function handle()
+    {
+     return ;
+    }
+
+    protected function onSuccess($result)
+    {
+     //dosomething
+    }
+}

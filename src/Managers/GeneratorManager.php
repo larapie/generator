@@ -103,6 +103,17 @@ class GeneratorManager
     }
 
     /**
+     * @param string $modelName
+     */
+    public function createAction(string $name)
+    {
+        $options = [
+            "name" => $name,
+        ];
+        $this->call('action', $options);
+    }
+
+    /**
      * @param string $name
      */
     public function createGuard(string $name)
