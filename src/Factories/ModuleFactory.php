@@ -95,13 +95,14 @@ class ModuleFactory
 
         $this->createModuleDirectory($moduleName);
 
-        return Larapie::getModule($moduleName);
+        return Larapie::getModules()->find($moduleName);
     }
 
     protected function createModuleDirectory($moduleName)
     {
         $path = Larapie::getModulePath($moduleName);
         mkdir($path);
+        Larapie::clear();
     }
 
     public function __call($name, $arguments)

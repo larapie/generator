@@ -118,7 +118,7 @@ abstract class AbstractGeneratorCommand extends Command
 
     protected function getModule(): ?Module
     {
-        $module = Larapie::getModule($this->getModuleName());
+        $module = Larapie::getModules()->find($this->getModuleName());
 
         if ($module === null)
             if (app()->environment('testing') || $this->confirm('The specified module does not exist. Do you want to create an empty module?', true)) {

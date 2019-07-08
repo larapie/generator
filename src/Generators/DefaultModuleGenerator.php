@@ -67,6 +67,8 @@ class DefaultModuleGenerator
 
         $this->factory->addServiceProvider($this->moduleName . 'ServiceProvider');
 
+        $this->factory->addSeeder($this->moduleName.'Seeder');
+
         $this->factory->addRoute('v1');
 
         $this->factory->addComposer();

@@ -3,8 +3,6 @@
 namespace $NAMESPACE$;
 
 use Illuminate\Support\ServiceProvider;
-use Modules\$MODULE$\Contracts\$MODULE$ServiceContract;
-use Modules\$MODULE$\Services\$MODULE$Service;
 
 class $CLASS$ extends ServiceProvider
 {
@@ -25,9 +23,7 @@ class $CLASS$ extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(
-                    $MODULE$ServiceContract::class,
-                    $MODULE$Service::class
-                );
+        //
     }
+
 }

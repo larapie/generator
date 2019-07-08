@@ -2,18 +2,11 @@
 
 namespace $NAMESPACE$;
 
-use Foundation\Abstracts\Events\Event;
-use Modules\$MODULE$\Entities\$MODULE$;
+use Larapie\Core\Contracts\Listeners;
+use App\Modules\$MODULE$\Models\$MODULE$;
 
-class $CLASS$ extends Event
+class $CLASS$ extends Event implements Listeners
 {
-
-    /**
-     * The listeners that will be fired when the event is dispatched.
-     * @var array
-     */
-    public $listeners = [];
-
     /**
      * @var $MODULE$
      */
@@ -37,4 +30,15 @@ class $CLASS$ extends Event
     {
         return [];
     }
+
+    /**
+     * An array of listeners that need to be registered for the event.
+     *
+     * @return string[]
+     */
+    public function getListeners(): array
+    {
+        return $this->listeners;
+    }
+
 }

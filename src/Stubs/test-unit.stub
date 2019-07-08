@@ -2,9 +2,9 @@
 
 namespace $NAMESPACE$;
 
-use Foundation\Abstracts\Tests\TestCase;
+use Larapie\Core\Base\Test;
 
-class $CLASS$ extends TestCase
+class $CLASS$ extends Test
 {
     /**
      * A basic test example.

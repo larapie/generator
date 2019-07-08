@@ -2,44 +2,24 @@
 
 namespace $NAMESPACE$;
 
-use Foundation\Exceptions\Exception;
-use Foundation\Policies\OwnershipPolicy;
-use Modules\$MODULE$\Contracts\$MODULE$ServiceContract;
 use Modules\User\Entities\User;
 
-class $CLASS$ extends OwnershipPolicy
+class $CLASS$
 {
-    /**
-     * @var $MODULE$ServiceContract $service
-     */
-    protected $service;
-
-    /**
-     * $CLASS$ constructor.
-     *
-     * @param $MODULE$ServiceContract $service
-     */
-    public function __construct($MODULE$ServiceContract $service)
-    {
-        $this->service = $service;
-    }
-
-    /**
+/**
      * Determine if the given user can access the model.
      *
      * @param User $user
      *
-     * @throws Exception
-     *
      * @return bool
      */
-    public function access($user, $model): bool
+    public function access(User $user, $model): bool
     {
-        return parent::access($user, $model);
+        return $user->id === $model->id;
     }
 
     /**
-     * Determine if the given user can access the model.
+     * Determine if the given user can create a model.
      *
      * @param User $user
      *
@@ -47,7 +27,7 @@ class $CLASS$ extends OwnershipPolicy
      */
     public function create(User $user): bool
     {
-        return parent::create($user);
+        return $user->hasPermissionTo($MODULE$Permission::CREATE);
     }
 
     /**
@@ -55,13 +35,12 @@ class $CLASS$ extends OwnershipPolicy
      *
      * @param User $user
      *
-     * @throws Exception
      *
      * @return bool
      */
     public function update(User $user, $model): bool
     {
-        return parent::update($user, $model);
+        return $this->access($user, $model);
     }
 
     /**
@@ -72,16 +51,19 @@ class $CLASS$ extends OwnershipPolicy
      */
     public function delete(User $user, $model): bool
     {
-        return parent::delete($user, $model);
+        return $this->access($user, $model) && $user->hasPermissionTo($MODULE$Permission::DELETE);
     }
 
     /**
      * @param User $user
      * @param $ability
-     * @return bool|null
+     *
+     * @return bool|null|void
      */
     public function before($user, $ability)
     {
-        return parent::before($user, $ability);
+        if ($user->hasRole(Roles::ADMIN)) {
+            return true;
+        }
     }
 }

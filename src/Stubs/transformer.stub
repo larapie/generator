@@ -2,28 +2,24 @@
 
 namespace $NAMESPACE$;
 
-use Foundation\Abstracts\Transformers\Transformer;
-use Foundation\Exceptions\Exception;
-use Modules\$MODULE$\Entities\$MODEL$;
+use Larapie\Transformer\Transformer;
+use App\Modules\$MODULE$\Models\$MODULE$;
 
 class $CLASS$ extends Transformer
 {
-
     /**
      * Determines wich relations can be requested with the resource.
      *
      * @var array
      */
-    public $available = [];
+    public $requestable = [];
 
     /**
      * Transform the resource into an array.
      *
-     * @throws Exception
-     *
      * @return array
      */
-    public function transformResource($MODULE$ $$LOWER_MODEL$)
+    public function transform($MODULE$ $$LOWER_MODEL$)
     {
         return [
             'id' => $$LOWER_MODEL$->id,
