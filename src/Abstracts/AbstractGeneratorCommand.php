@@ -123,6 +123,7 @@ abstract class AbstractGeneratorCommand extends Command
         if ($module === null)
             if (app()->environment('testing') || $this->confirm('The specified module does not exist. Do you want to create an empty module?', true)) {
                 mkdir(Larapie::getModulePath($this->getModuleName()), 0777,true);
+                Larapie::clear();
                 $module = Larapie::getModule($this->getModuleName());
                 GeneratorManager::module($this->getModuleName())->createComposer();
             } else {

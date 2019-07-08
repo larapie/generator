@@ -9,6 +9,7 @@
 namespace Larapie\Generator\Generators;
 
 
+use Illuminate\Support\Str;
 use Larapie\Generator\Factories\ModuleFactory;
 
 /**
@@ -43,6 +44,12 @@ class DefaultModuleGenerator
     public function generate(){
 
         $this->factory->addModel($this->moduleName, false, true);
+
+        $this->factory->addAction('Create'.$this->moduleName.'Action');
+        $this->factory->addAction('Find'.$this->moduleName.'Action');
+        $this->factory->addAction('Update'.$this->moduleName.'Action');
+        $this->factory->addAction('Delete'.$this->moduleName.'Action');
+        $this->factory->addAction('Get'.Str::plural($this->moduleName).'Action');
 
         $this->factory->addTest($this->moduleName . 'UnitTest', 'unit');
 

@@ -40,6 +40,7 @@ use Illuminate\Support\Str;
  * @method void addService(string $name, bool $dto = false)
  * @method void addServiceContract(string $name, bool $dto = false)
  * @method void addException(string $name)
+ * @method void addAction(string $name)
  * @method void addPermission(string $name)
  * @method void addAttribute(string $name)
  * @method void addDto(string $name)
