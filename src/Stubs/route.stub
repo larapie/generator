@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/', '');
-Route::get('/{id}', '');
-Route::post('/', '');
-Route::patch('/{id}', '');
-Route::delete('/{id}', '');
+//Route::get('/', '');
+//Route::get('/{id}', '');
+//Route::post('/', '');
+//Route::patch('/{id}', '');
+//Route::delete('/{id}', '');
 
 
 

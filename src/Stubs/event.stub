@@ -5,7 +5,7 @@ namespace $NAMESPACE$;
 use Larapie\Core\Contracts\Listeners;
 use App\Modules\$MODULE$\Models\$MODULE$;
 
-class $CLASS$ extends Event implements Listeners
+class $CLASS$ implements Listeners
 {
     /**
      * @var $MODULE$
@@ -36,7 +36,7 @@ class $CLASS$ extends Event implements Listeners
      *
      * @return string[]
      */
-    public function getListeners(): array
+    public function listeners(): array
     {
         return $this->listeners;
     }
