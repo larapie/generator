@@ -2,7 +2,22 @@
 
 namespace $NAMESPACE$;
 
-interface $CLASS$
+use Faker\Generator;
+use Larapie\Actions\Attribute;
+
+class $CLASS$ extends Attribute
 {
-    const ID = 'id';
+    public function rules()
+    {
+        return '';
+    }
+
+    public function factory(Generator $faker)
+    {
+        return ;
+    }
+    public function cast($value)
+    {
+        return $value;
+    }
 }
