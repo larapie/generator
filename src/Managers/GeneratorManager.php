@@ -102,6 +102,17 @@ class GeneratorManager
         $this->call('attribute', $options);
     }
 
+
+    public function createCrudAction(string $actionName, string $modelName, string $crudOperation)
+    {
+        $options = [
+            "name" => $actionName,
+            "--model" => $modelName,
+            "--crud" => $crudOperation
+        ];
+        $this->call('action-crud', $options);
+    }
+
     /**
      * @param string $modelName
      */
@@ -186,10 +197,11 @@ class GeneratorManager
     /**
      * @param string $policyName
      */
-    public function createPolicy(string $policyName)
+    public function createPolicy(string $policyName, string $model)
     {
         $options = [
             "name" => $policyName,
+            "--model" => $model
         ];
         $this->call('policy', $options);
     }

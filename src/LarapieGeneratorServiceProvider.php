@@ -52,6 +52,7 @@ class LarapieGeneratorServiceProvider extends ServiceProvider
     public function registerResourceMakeCommands(){
         $this->commands([
             config('generator.commands.action'),
+            config('generator.commands.action-crud'),
             config('generator.commands.attribute'),
             config('generator.commands.command'),
             config('generator.commands.composer'),

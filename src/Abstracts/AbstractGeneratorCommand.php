@@ -145,10 +145,11 @@ abstract class AbstractGeneratorCommand extends Command
     protected final function defaultStubOptions(): array
     {
         return [
-            "LOWER_MODULE" => strtolower($this->getModuleName()),
-            "MODULE" => $this->getModuleName(),
-            "PLURAL_MODULE" => Str::plural($this->getModuleName()),
-            "PLURAL_LOWER_MODULE" => strtolower(Str::plural($this->getModuleName())),
+            "LOWER_MODULE" => strtolower($this->getModule()->getName()),
+            "MODULE" => $this->getModule()->getName(),
+            "MODULE_NAMESPACE" => $this->getModule()->getNamespace(),
+            "PLURAL_MODULE" => Str::plural($this->getModule()->getName()),
+            "PLURAL_LOWER_MODULE" => strtolower(Str::plural($this->getModule()->getName())),
             "CLEAN_NAME" => $this->getCleanName()
         ];
     }

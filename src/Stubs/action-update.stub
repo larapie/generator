@@ -1,0 +1,36 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use $MODEL_NAMESPACE$;
+use Larapie\Actions\Action;
+use $TRANSFORMER_NAMESPACE$\$TRANSFORMER$;
+use $EVENT_NAMESPACE$\$MODEL$WasUpdatedEvent;
+
+class $CLASS$ extends Action
+{
+    public function authorize($MODEL$ $$LOWER_MODEL$)
+    {
+        return $this->user()->can('access', $$LOWER_MODEL$);
+    }
+
+    public function handle($MODEL$ $$LOWER_MODEL$)
+    {
+        return tap($$LOWER_MODEL$)->update($this->validated());
+    }
+
+    public function jsonResponse($result, $request)
+    {
+        return $MODEL$Transformer::resource($result);
+    }
+
+    protected function onSuccess($MODEL$ $$LOWER_MODEL$)
+    {
+        event(new $MODEL$WasUpdatedEvent($$LOWER_MODEL$));
+    }
+
+    public function jsonResponse($result, $request)
+    {
+        return $MODEL$Transformer::resource($result);
+    }
+}

@@ -13,9 +13,9 @@ class $CLASS$
      *
      * @return bool
      */
-    public function access(User $user, $model): bool
+    public function access(User $user, $MODEL$ $LOWER_MODEL$): bool
     {
-        return $user->id === $model->id;
+        return $user->owns($LOWER_MODEL$);
     }
 
     /**
@@ -38,9 +38,9 @@ class $CLASS$
      *
      * @return bool
      */
-    public function update(User $user, $model): bool
+    public function update(User $user, $MODEL$ $LOWER_MODEL$): bool
     {
-        return $this->access($user, $model);
+        return $this->access($user, $LOWER_MODEL$);
     }
 
     /**
@@ -49,9 +49,9 @@ class $CLASS$
      *
      * @return bool
      */
-    public function delete(User $user, $model): bool
+    public function delete(User $user, $MODEL$ $LOWER_MODEL$): bool
     {
-        return $this->access($user, $model) && $user->hasPermissionTo($MODULE$Permission::DELETE);
+        return $user->owns($LOWER_MODEL$) && $user->hasPermissionTo($MODULE$Permission::DELETE);
     }
 
     /**

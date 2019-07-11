@@ -20,7 +20,7 @@ use Illuminate\Support\Str;
  *
  * @method void addMigration(string $name, string $table, bool $mongo)
  * @method void addController(string $name, bool $dto = false)
- * @method void addPolicy(string $name)
+ * @method void addPolicy(string $name, string $model)
  * @method void addEvent(string $name)
  * @method void addNotification(string $name)
  * @method void addServiceProvider(string $name)
@@ -41,6 +41,7 @@ use Illuminate\Support\Str;
  * @method void addServiceContract(string $name, bool $dto = false)
  * @method void addException(string $name)
  * @method void addAction(string $name)
+ * @method void addCrudAction(string $name, string $model, string $crudoperation)
  * @method void addPermission(string $name)
  * @method void addAttribute(string $name)
  * @method void addDto(string $name)

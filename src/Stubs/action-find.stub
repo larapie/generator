@@ -1,0 +1,24 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use $MODEL_NAMESPACE$;
+use Larapie\Actions\Action;
+use $TRANSFORMER_NAMESPACE$\$TRANSFORMER$;
+
+class $CLASS$ extends Action
+{
+    public function authorize($MODEL$ $$LOWER_MODEL$)
+    {
+        return $this->user()->can('access', $$LOWER_MODEL$);
+    }
+
+    public function handle($MODEL$ $$LOWER_MODEL$)
+    {
+        return $$LOWER_MODULE$
+    }
+    public function jsonResponse($result, $request)
+    {
+        return $MODEL$Transformer::resource($result);
+    }
+}

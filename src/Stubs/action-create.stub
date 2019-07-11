@@ -1,0 +1,45 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use $MODEL_NAMESPACE$;
+use Larapie\Actions\Action;
+use $TRANSFORMER_NAMESPACE$\$TRANSFORMER$;
+use $EVENT_NAMESPACE$\$MODEL$WasCreatedEvent;
+
+class $CLASS$ extends Action
+{
+    public function authorize()
+    {
+        return $this->user()->can('create',$MODEL$::class);
+    }
+
+    public function rules()
+    {
+        return [
+
+        ];
+    }
+
+    public function includes()
+    {
+        return [
+            'user_id' => $this->user()->id
+        ];
+    }
+
+    public function handle()
+    {
+        return $MODEL$::create($this->validated());
+    }
+
+    protected function onSuccess($MODEL$ $$LOWER_MODEL$)
+    {
+        event(new $MODEL$WasCreatedEvent($$LOWER_MODEL$));
+    }
+
+    public function jsonResponse($result, $request)
+    {
+        return $MODEL$Transformer::resource($result);
+    }
+}

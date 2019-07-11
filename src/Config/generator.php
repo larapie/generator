@@ -7,6 +7,7 @@ return [
 
     'commands' => [
         'action' => \Larapie\Generator\Commands\ActionMakeCommand::class,
+        'action-crud' => \Larapie\Generator\Commands\CrudActionMakeCommand::class,
         'attribute' => \Larapie\Generator\Commands\AttributeMakeCommand::class,
         'command' => \Larapie\Generator\Commands\CommandMakeCommand::class,
         'composer' => \Larapie\Generator\Commands\ComposerMakeCommand::class,

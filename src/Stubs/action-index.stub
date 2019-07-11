@@ -1,0 +1,20 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use $MODEL_NAMESPACE$;
+use Larapie\Actions\Action;
+use $TRANSFORMER_NAMESPACE$\$TRANSFORMER$;
+
+class $CLASS$ extends Action
+{
+    public function handle()
+    {
+        return $MODEL$::where('user_id',$this->user()->id)->get();
+    }
+
+    public function jsonResponse($result, $request)
+    {
+        return $MODEL$Transformer::collection($result);
+    }
+}

@@ -1,0 +1,27 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use $MODEL_NAMESPACE$;
+use Larapie\Actions\Action;
+use $EVENT_NAMESPACE$\$MODEL$WasDeletedEvent;
+
+class $CLASS$ extends Action
+{
+    public function authorize($MODEL$ $$LOWER_MODEL$)
+    {
+        return $this->user()->can('delete',$$LOWER_MODEL$);
+    }
+
+    public function handle($MODEL$ $$LOWER_MODEL$)
+    {
+        return tap($$LOWER_MODEL$, function (Device $$LOWER_MODEL$) {
+            $$LOWER_MODEL$->delete();
+        });
+    }
+
+    protected function onSuccess($MODEL$ $LOWER_MODEL$)
+    {
+        event(new $MODEL$WasDeletedEvent($LOWER_MODEL$));
+    }
+}

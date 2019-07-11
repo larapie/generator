@@ -5,9 +5,11 @@ namespace Larapie\Generator\Commands;
 use Larapie\Generator\Abstracts\AbstractGeneratorCommand;
 use Larapie\Generator\Abstracts\ClassGeneratorCommand;
 use Larapie\Generator\Events\PolicyGeneratedEvent;
+use Larapie\Generator\Traits\ModelOptions;
 
 class PolicyMakeCommand extends ClassGeneratorCommand
 {
+    use ModelOptions;
     /**
      * The console command name.
      *
@@ -45,10 +47,10 @@ class PolicyMakeCommand extends ClassGeneratorCommand
 
     protected function stubOptions(): array
     {
-        return [
+        return $this->injectModelOptions([
             'NAMESPACE' => $this->getClassNamespace(),
             'CLASS' => $this->getClassName(),
-        ];
+        ]);
     }
 
     protected function resourcePath(): string

@@ -41,15 +41,16 @@ class DefaultModuleGenerator
     /**
      *
      */
-    public function generate(){
+    public function generate()
+    {
 
         $this->factory->addModel($this->moduleName, false, true);
 
-        $this->factory->addAction('Create'.$this->moduleName.'Action');
-        $this->factory->addAction('Find'.$this->moduleName.'Action');
-        $this->factory->addAction('Update'.$this->moduleName.'Action');
-        $this->factory->addAction('Delete'.$this->moduleName.'Action');
-        $this->factory->addAction('Get'.Str::plural($this->moduleName).'Action');
+        $this->factory->addCrudAction('Create' . $this->moduleName . 'Action', $this->moduleName, 'create');
+        $this->factory->addCrudAction('Update' . $this->moduleName . 'Action', $this->moduleName, 'update');
+        $this->factory->addCrudAction('Delete' . $this->moduleName . 'Action', $this->moduleName, 'delete');
+        $this->factory->addCrudAction('Get' . Str::plural($this->moduleName) . 'Action', $this->moduleName, 'get');
+        $this->factory->addCrudAction('Find' . $this->moduleName . 'Action', $this->moduleName, 'find');
 
         $this->factory->addTest($this->moduleName . 'UnitTest', 'unit');
 
@@ -59,15 +60,15 @@ class DefaultModuleGenerator
 
         $this->factory->addPermission($this->moduleName . 'Permission');
 
-        $this->factory->addPolicy($this->moduleName . 'Policy');
+        $this->factory->addPolicy($this->moduleName . 'Policy',$this->moduleName);
 
         $this->factory->addFactory($this->moduleName);
 
-        $this->factory->addTransformer($this->moduleName.'Transformer', $this->moduleName);
+        $this->factory->addTransformer($this->moduleName . 'Transformer', $this->moduleName);
 
         $this->factory->addServiceProvider($this->moduleName . 'ServiceProvider');
 
-        $this->factory->addSeeder($this->moduleName.'Seeder');
+        $this->factory->addSeeder($this->moduleName . 'Seeder');
 
         $this->factory->addRoute('v1');
 
