@@ -2,7 +2,7 @@
 
 namespace $NAMESPACE$;
 
-use Modules\User\Entities\User;
+use Modules\User\Models\User;
 use $PERMISSION_NAMESPACE$\$MODEL$Permission;
 
 class $CLASS$
