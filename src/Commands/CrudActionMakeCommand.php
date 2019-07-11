@@ -53,8 +53,8 @@ class CrudActionMakeCommand extends ClassGeneratorCommand
             'NAMESPACE' => $this->getClassNamespace(),
             'CLASS' => $this->getClassName(),
             'TRANSFORMER' => $transformer = $this->getModelName().'Transformer',
-            'TRANSFORMER_NAMESPACE' => $this->getModule()->getTransformers()->getNamespace(),
-            'EVENT_NAMESPACE' => $this->getModule()->getEvents()->getNamespace()
+            'TRANSFORMER_NAMESPACE' => $this->getModule()->getTransformers()->getFilteredNamespace(),
+            'EVENT_NAMESPACE' => $this->getModule()->getEvents()->getFilteredNamespace()
         ]);
     }
 

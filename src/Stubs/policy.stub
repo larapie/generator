@@ -3,19 +3,20 @@
 namespace $NAMESPACE$;
 
 use Modules\User\Entities\User;
+use $PERMISSION_NAMESPACE$\$MODEL$Permission;
 
 class $CLASS$
 {
-/**
+    /**
      * Determine if the given user can access the model.
      *
      * @param User $user
      *
      * @return bool
      */
-    public function access(User $user, $MODEL$ $LOWER_MODEL$): bool
+    public function access(User $user, $MODEL$ $$LOWER_MODEL$): bool
     {
-        return $user->owns($LOWER_MODEL$);
+        return $user->owns($$LOWER_MODEL$);
     }
 
     /**
@@ -27,7 +28,7 @@ class $CLASS$
      */
     public function create(User $user): bool
     {
-        return $user->hasPermissionTo($MODULE$Permission::CREATE);
+        return $user->hasPermissionTo($MODEL$Permission::CREATE);
     }
 
     /**
@@ -38,9 +39,9 @@ class $CLASS$
      *
      * @return bool
      */
-    public function update(User $user, $MODEL$ $LOWER_MODEL$): bool
+    public function update(User $user, $MODEL$ $$LOWER_MODEL$): bool
     {
-        return $this->access($user, $LOWER_MODEL$);
+        return $user->owns($$LOWER_MODEL$) && $user->hasPermissionTo($MODEL$Permission::UPDATE);
     }
 
     /**
@@ -49,9 +50,9 @@ class $CLASS$
      *
      * @return bool
      */
-    public function delete(User $user, $MODEL$ $LOWER_MODEL$): bool
+    public function delete(User $user, $MODEL$ $$LOWER_MODEL$): bool
     {
-        return $user->owns($LOWER_MODEL$) && $user->hasPermissionTo($MODULE$Permission::DELETE);
+        return $user->owns($$LOWER_MODEL$) && $user->hasPermissionTo($MODEL$Permission::DELETE);
     }
 
     /**

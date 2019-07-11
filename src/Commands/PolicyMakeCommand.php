@@ -50,6 +50,7 @@ class PolicyMakeCommand extends ClassGeneratorCommand
         return $this->injectModelOptions([
             'NAMESPACE' => $this->getClassNamespace(),
             'CLASS' => $this->getClassName(),
+            'PERMISSION_NAMESPACE' => $this->getModule()->getPermissions()->getFilteredNamespace()
         ]);
     }
 
