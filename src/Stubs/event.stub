@@ -38,7 +38,7 @@ class $CLASS$ implements Listeners
      */
     public function listeners(): array
     {
-        return $this->listeners;
+        return [];
     }
 
 }

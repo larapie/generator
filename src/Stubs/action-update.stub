@@ -19,11 +19,6 @@ class $CLASS$ extends Action
         return tap($$LOWER_MODEL$)->update($this->validated());
     }
 
-    public function jsonResponse($result, $request)
-    {
-        return $MODEL$Transformer::resource($result);
-    }
-
     protected function onSuccess($MODEL$ $$LOWER_MODEL$)
     {
         event(new $MODEL$WasUpdatedEvent($$LOWER_MODEL$));

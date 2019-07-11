@@ -15,13 +15,13 @@ class $CLASS$ extends Action
 
     public function handle($MODEL$ $$LOWER_MODEL$)
     {
-        return tap($$LOWER_MODEL$, function (Device $$LOWER_MODEL$) {
+        return tap($$LOWER_MODEL$, function ($MODEL$ $$LOWER_MODEL$) {
             $$LOWER_MODEL$->delete();
         });
     }
 
-    protected function onSuccess($MODEL$ $LOWER_MODEL$)
+    protected function onSuccess($MODEL$ $$LOWER_MODEL$)
     {
-        event(new $MODEL$WasDeletedEvent($LOWER_MODEL$));
+        event(new $MODEL$WasDeletedEvent($$LOWER_MODEL$));
     }
 }

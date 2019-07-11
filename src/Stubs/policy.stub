@@ -2,8 +2,10 @@
 
 namespace $NAMESPACE$;
 
-use Modules\User\Models\User;
+use App\Modules\User\Models\User;
 use $PERMISSION_NAMESPACE$\$MODEL$Permission;
+use $MODEL_NAMESPACE$;
+use App\Modules\Authorization\Contracts\Roles;
 
 class $CLASS$
 {

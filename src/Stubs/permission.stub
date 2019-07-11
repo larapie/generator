@@ -5,7 +5,7 @@ namespace $NAMESPACE$;
 interface $CLASS$
 {
     const INDEX = '$LOWER_MODULE$.index';
-    const SHOW = '$LOWER_MODULE$.show';
+    const FIND = '$LOWER_MODULE$.show';
     const UPDATE = '$LOWER_MODULE$.update';
     const CREATE = '$LOWER_MODULE$.create';
     const DELETE = '$LOWER_MODULE$.delete';

@@ -15,7 +15,7 @@ class $CLASS$ extends Action
 
     public function handle($MODEL$ $$LOWER_MODEL$)
     {
-        return $$LOWER_MODULE$
+        return $$LOWER_MODULE$;
     }
     public function jsonResponse($result, $request)
     {
