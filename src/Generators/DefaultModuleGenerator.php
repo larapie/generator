@@ -49,7 +49,7 @@ class DefaultModuleGenerator
         $this->factory->addCrudAction('Create' . $this->moduleName . 'Action', $this->moduleName, 'create');
         $this->factory->addCrudAction('Update' . $this->moduleName . 'Action', $this->moduleName, 'update');
         $this->factory->addCrudAction('Delete' . $this->moduleName . 'Action', $this->moduleName, 'delete');
-        $this->factory->addCrudAction('Get' . Str::plural($this->moduleName) . 'Action', $this->moduleName, 'get');
+        $this->factory->addCrudAction('Get' . Str::plural($this->moduleName) . 'Action', $this->moduleName, 'index');
         $this->factory->addCrudAction('Find' . $this->moduleName . 'Action', $this->moduleName, 'find');
 
         $this->factory->addTest($this->moduleName . 'UnitTest', 'unit');
