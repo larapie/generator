@@ -5,7 +5,7 @@ namespace $NAMESPACE$;
 use Illuminate\Database\Eloquent\Model;
 use App\Foundation\Contracts\Ownable;
 use App\Foundation\Traits\UserOwned;
-use App\Modules\$MODULE$\Policies\$MODEL$Policy;
+use App\Modules\$MODULE$\Policies\$CLASS$Policy;
 use Larapie\Core\Contracts\Policy;
 
 class $CLASS$ extends Model implements Ownable, Policy
@@ -17,7 +17,7 @@ class $CLASS$ extends Model implements Ownable, Policy
 
     public function policy(): string
     {
-        return $MODEL$Policy::class;
+        return $CLASS$Policy::class;
     }
 
 }
