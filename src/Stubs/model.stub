@@ -3,8 +3,21 @@
 namespace $NAMESPACE$;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Foundation\Contracts\Ownable;
+use App\Foundation\Traits\UserOwned;
+use App\Modules\$MODULE$\Policies\$MODEL$Policy;
+use Larapie\Core\Contracts\Policy;
 
-class $CLASS$ extends Model
+class $CLASS$ extends Model implements Ownable, Policy
 {
+    use UserOwned;
+
+    public $guarded = [];
+
+
+    public function policy(): string
+    {
+        return $MODEL$Policy::class;
+    }
 
 }
